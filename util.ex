@@ -4,6 +4,9 @@ defmodule AOC do
   end
 
   def solve(n) do
-    input(n) |> AOC.Day.solve |> IO.inspect
+    file = input(n)
+    {time, result} = :timer.tc(AOC.Day, :solve, [file])
+    IO.inspect result
+    IO.puts "* Completed in #{time}us (#{time / 1000}ms)"
   end
 end
